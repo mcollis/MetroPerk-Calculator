@@ -1,5 +1,3 @@
 'use strict';
 
-angular.module('metroPerkApp', [
-  'ngSanitize',
-])
+angular.module('metroPerkApp', [ 'ngSanitize', ]);
