@@ -1,0 +1,127 @@
+<div id="calculator" ng-controller="MainCtrl">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center" width="40%" colspan="2">With MetroPerk</th>
+        <th class="text-center" width="20%">  &nbsp; </th>
+        <th class="text-center" width="40%" colspan="2">Without MetroPerk</th>
+      </tr>
+    </thead>
+    <tr>
+      <td class="text-right" width="20%"> ${{salary|number:0}} </td>
+      <td class="text-right" width="20%"> &nbsp; </td>
+      <td class="text-center" width="20%">
+        Paycheck Salary
+      </td>
+      <td class="text-right" width="20%"> &nbsp; </td>
+      <td class="text-right" width="20%"> ${{salary|number:0}} </td>
+    </tr>
+    <tr class="last">
+      <td class="text-right"> ${{pass|number:0}} </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-center">
+        Pre-tax Transit Pass Deduction from Paycheck
+      </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-right"> $0 </td>
+    </tr>
+    <tr>
+      <td class="text-right"> ${{gross|number:0}} </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-center">
+        Taxable Income
+      </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-right"> ${{salary|number:0}} </td>
+    </tr>
+    <tr>
+      <td class="text-right"> ${{tax|number:0}} </td>
+      <td class="text-center"> {{rate*100|number:0}}% </td>
+      <td class="text-center">
+        Taxes taken out of each paycheck
+      </td>
+      <td class="text-center"> {{rate*100|number:0}}% </td>
+      <td class="text-right"> ${{ntax|number:0}} </td>
+    </tr>
+    <tr class="last">
+      <td class="text-right"> $0 </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-center">
+        External Transit Pass Purchase
+      </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-right"> ${{pass|number:0}} </td>
+    </tr>
+    <tr>
+      <td class="text-right"> ${{net|number:0}} </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-center">
+        Take Home Pay
+      </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-right"> ${{nnet|number:0}} </td>
+    </tr>
+    <tr>
+      <td class="text-right"> ${{savings|number:0}} </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-center">
+        Monthly Savings
+      </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-right"> $0 </td>
+    </tr>
+    <tr>
+      <td class="text-right"> ${{actual|number:0}} </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-center">
+        Actual cost of Transit Pass
+      </td>
+      <td class="text-right"> &nbsp; </td>
+      <td class="text-right"> ${{pass|number:0}} </td>
+    </tr>
+  </table>
+
+  <p class="text-center">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Personalize</button>
+  </p>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Personalize Data</h4>
+        </div>
+
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-sm-4 col-sm-offset-2">Paycheck Salary</label>
+              <div class="col-sm-4 input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control text-right" ng-model="csalary">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4 col-sm-offset-2">Tax Rate</label>
+              <div class="col-sm-4 input-group">
+                <input type="text" class="form-control text-right" ng-model="crate">
+                <span class="input-group-addon">%</span>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" ng-click="update()">Update</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+</div>
